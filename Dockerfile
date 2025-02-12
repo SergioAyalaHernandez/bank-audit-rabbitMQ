@@ -2,7 +2,7 @@
 FROM gradle:8.5-jdk17 AS build
 WORKDIR /app
 COPY --chown=gradle:gradle . .
-RUN gradle clean build --info --continue --console=plain --stacktrace
+RUN gradle clean build -x test
 
 
 

@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'com.audit'
-version = '1.0.2'
+version = '1.0.3'
 
 java {
     toolchain {
@@ -33,6 +33,11 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.named('asciidoctor') {
+    inputs.dir snippetsDir
+    dependsOn test
 }
 
 sonar {

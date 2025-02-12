@@ -73,7 +73,7 @@ jobs:
           -Dsonar.coverage.includes=src/test/java/com/audit/demo/consumer/**,src/test/java/com/audit/demo/repository/**,src/test/java/com/audit/demo/service/impl/** \
           -Dsonar.sources=src/main/java \
           -Dsonar.tests=src/test/java \
-          -Dsonar.exclusions=**/main/java/com/sergio/bank/model/**,**/main/java/com/audit/demo/config/**,**/main/java/com/audit/demo/dto/**,**/main/java/com/audit/demo/model/**,**/main/java/com/audit/demo/DemoApplication.java,**/*.json,**/*.png,**/*.md,**/*.txt,**/*.properties,**/*.gradle,**/*.yml,**/test/resources/**
+          -Dsonar.exclusions=**/main/java/com/audit/demo/model/**,**/main/java/com/audit/demo/config/**,**/main/java/com/audit/demo/dto/**,**/main/java/com/audit/demo/model/**,**/main/java/com/audit/demo/DemoApplication.java,**/*.json,**/*.png,**/*.md,**/*.txt,**/*.properties,**/*.gradle,**/*.yml,**/test/resources/**
 
   publish:
     needs: sonar
