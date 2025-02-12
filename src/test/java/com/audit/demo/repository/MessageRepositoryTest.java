@@ -85,6 +85,20 @@ class MessageRepositoryTest {
     }
 
     @Test
+    void findByIdEntidad_ShouldReturnEmptyFlux() {
+        // Arrange
+        String idEntidad = "nonexistent";
+        Pageable pageable = PageRequest.of(0, 10);
+
+        when(messageRepository.findByIdEntidad(eq(idEntidad), any(Pageable.class)))
+                .thenReturn(Flux.empty());
+
+        // Act & Assert
+        StepVerifier.create(messageRepository.findByIdEntidad(idEntidad, pageable))
+                .verifyComplete();
+    }
+
+    @Test
     void countByRecurso_ShouldReturnCount() {
         // Arrange
         String recurso = "recurso1";
@@ -96,20 +110,6 @@ class MessageRepositoryTest {
         // Act & Assert
         StepVerifier.create(messageRepository.countByRecurso(recurso))
                 .expectNext(expectedCount)
-                .verifyComplete();
-    }
-
-    @Test
-    void findByIdEntidad_ShouldReturnEmptyFlux() {
-        // Arrange
-        String idEntidad = "nonexistent";
-        Pageable pageable = PageRequest.of(0, 10);
-
-        when(messageRepository.findByIdEntidad(eq(idEntidad), any(Pageable.class)))
-                .thenReturn(Flux.empty());
-
-        // Act & Assert
-        StepVerifier.create(messageRepository.findByIdEntidad(idEntidad, pageable))
                 .verifyComplete();
     }
 }
