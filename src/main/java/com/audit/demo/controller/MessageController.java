@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/messages")
+@RequestMapping("/api/messages")
 @AllArgsConstructor
 public class MessageController {
 
